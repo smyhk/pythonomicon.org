@@ -1,5 +1,6 @@
 [![Python](https://img.shields.io/badge/Python-3.6-blue.svg?style=plastic)](https://www.python.org)
-[![Flask](https://img.shields.io/badge/Powered%20by-Flask-lightgrey.svg=plastic)](http://flask.pocoo.org/)
+[![Flask](https://img.shields.io/badge/Powered%20by-Flask-lightgrey.svg?style=plastic)](http://flask.pocoo.org)
+
 # Project Title
 
 One Paragraph of project description goes here
