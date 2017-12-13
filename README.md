@@ -1,4 +1,4 @@
-[![python version](https://img.shields.io/badge/Python-3.6-blue.svg?style=plastic)]
+[![Python](https://img.shields.io/badge/Python-3.6-blue.svg?style=plastic)](https://www.python.org)
 
 # Project Title
 
