@@ -1,9 +1,12 @@
 [![Python](https://img.shields.io/badge/Python-3.6-blue.svg?style=plastic)](https://www.python.org)
 [![Flask](https://img.shields.io/badge/Powered%20by-Flask-lightgrey.svg?style=plastic)](http://flask.pocoo.org)
 
-# Project Title
+# Pythonomicon.org
 
-One Paragraph of project description goes here
+The Pythonomicon is my personal developer journal of my experiences learning and working with the Python programming
+language. I've decided to document my experiences in an effort to provide information for potentially both experienced 
+and budding Python programmers. Granted, this site may be viewed as yet-another-Python-blog, but I hope utilize this
+application as a tool for growth that follows the learn-do-teach model.
 
 ## Getting Started
 
