@@ -1,6 +1,13 @@
+import os
 from flask import Flask, render_template
 
 app = Flask(__name__)
+
+if os.environ.get("DEPLOYMENT_ENV") == "development":
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DEV_DATABASE_URI"]
+
+if os.environ.get("DEPLOYMENT_ENV") == "heroku":
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
 
 
 @app.route("/")
