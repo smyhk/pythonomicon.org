@@ -16,6 +16,6 @@ def create_app(config_name):
     """
 
     from app.views import mod
-    app.register_blueprint(mod, url_prefix="/")
+    app.register_blueprint(mod)
 
     return app
