@@ -57,7 +57,7 @@ def signup():
         new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
-        return "new user in db"
+        return redirect(url_for('app.index'))
 
     return render_template("signup.html", form=form)
 
@@ -73,4 +73,4 @@ def home():
 def logout():
     logout_user()
     flash("You have been logged out")
-    return redirect("/")
+    return redirect(url_for('app.index'))
