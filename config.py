@@ -10,6 +10,7 @@ __author__ = "Steve"
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    USE_SESSION_FOR_NEXT = True
 
     @staticmethod
     def init_app(app):

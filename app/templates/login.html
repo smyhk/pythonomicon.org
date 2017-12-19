@@ -6,11 +6,12 @@
 {% block content %}
 <div class="login-page sidebar-collapse">
     <div class="page-header" filter-color="orange">
-        <div class="page-header-image" style="background-image:url(../assets/img/login.jpg)"></div>
+        <div class="page-header-image" style="background-image:url(static/img/login.jpg)"></div>
         <div class="container">
             <div class="col-md-4 content-center">
                 <div class="card card-login card-plain">
-                    <form class="form" method="post" action="/userlogin">
+                    <form class="form" method="post" action="{{ url_for('app.login') }}">
+                        {{ form.hidden_tag() }}
                         <div class="header header-primary text-center">
                             <div class="logo-container">
                                 <img src="static/img/now-logo.png" alt="">
@@ -21,17 +22,19 @@
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons users_circle-08"></i>
                                 </span>
-                                <input type="text" name="username" class="form-control" placeholder="Username...">
+                                {{ form.username(class="form-control") }}
+                                <!-- <input type="text" name="username" class="form-control" placeholder="Username..."> -->
                             </div>
                             <div class="input-group form-group-no-border input-lg">
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons text_caps-small"></i>
                                 </span>
-                                <input type="password" name="password" placeholder="Password" class="form-control" />
+                                {{ form.password(class="form-control") }}
+                                <!-- <input type="password" name="password" placeholder="Password" class="form-control" /> -->
                             </div>
                         </div>
                         <div class="footer text-center">
-                            <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Get Started</a>
+                            <input type="submit" class="btn btn-primary btn-round btn-lg btn-block">
                         </div>
                         <div class="pull-left">
                             <h6>
