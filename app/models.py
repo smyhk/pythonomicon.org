@@ -16,8 +16,8 @@ class User(db.Model, UserMixin):
 class Post(db.Model):
     __tablename__ = "posts"
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(50))
-    sub_title = db.Column(db.String(50))
+    title = db.Column(db.String(256))
+    subtitle = db.Column(db.String(256))
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     date_posted = db.Column(db.DateTime)
     content = db.Column(db.Text)
