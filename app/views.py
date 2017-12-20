@@ -38,13 +38,16 @@ def login():
                 login_user(user)
                 flash("Logged in successfully")
 
+                # TODO: Fix 'next'
+                """" 
                 dest = request.args.get('next')
                 # is_safe_url should check if the url is safe for redirects.
                 # See http://flask.pocoo.org/snippets/62/ for an example.
                 if not is_safe_url(dest):
                     return abort(400)
+                """
 
-                return redirect(next or url_for('app.index'))
+                return redirect(url_for('app.index'))
 
     return render_template("login.html", form=form)
 
