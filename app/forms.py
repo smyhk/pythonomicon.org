@@ -26,5 +26,5 @@ class SignupForm(FlaskForm):
 class NewPostForm(FlaskForm):
     title = StringField("title", validators=[InputRequired(), Length(min=1, max=256)])
     subtitle = StringField("subtitle", validators=[InputRequired(), Length(min=1, max=256)])
-    content = TextAreaField("subtitle", validators=InputRequired())
+    content = TextAreaField("subtitle", validators=[InputRequired()])
     submit = SubmitField("Publish")

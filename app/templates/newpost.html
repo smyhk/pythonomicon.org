@@ -1,0 +1,50 @@
+{% extends "layouts/baselayout.html" %}
+{% block title %}
+  New Post | The Pythonomicon
+{% endblock %}
+
+{% block content %}
+  <div class="wrapper">
+    <div class="page-header page-header-small" filter-color="orange">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('static/img/bg5.jpg');">
+      </div>
+      <div class="container">
+        <div class="content-center brand">
+          <h1 class="h1-seo">The Pythonomicon</h1>
+          <h3><em>noun</em> | pytho·nomi·con \'pithō, nämi, kän\</h3>
+          <p class="category">A developer's journal documenting my experiences with Python.</p>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <form class="form" method="post" action="{{ url_for('app.new_post') }}">
+          {{ form.hidden_tag() }}
+          <div class="content">
+            <div class="input-group form-group-no-border input-lg">
+              <span class="input-group-addon">
+                <i class="now-ui-icons text_caps-small"></i>
+              </span>
+              {{ form.title(class="form-control", placeholder="Title...") }}
+            </div>
+            <div class="input-group form-group-no-border input-lg">
+              <span class="input-group-addon">
+                <i class="now-ui-icons text_caps-small"></i>
+              </span>
+              {{ form.subtitle(class="form-control", placeholder="Subtitle...") }}
+            </div>
+            <div class="input-group form-group-no-border input-lg">
+              <span class="input-group-addon">
+                <i class="now-ui-icons text_caps-small"></i>
+              </span>
+              {{ form.content(class="form-control", placeholder="Content...", rows="10") }}
+            </div>
+          </div>
+          <div class="footer text-center">
+            {{ form.submit(class="btn btn-primary btn-round btn-lg btn-block") }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

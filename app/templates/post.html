@@ -1,0 +1,42 @@
+{% extends "layouts/baselayout.html" %}
+{% block title %}
+  Post | The Pythonomicon
+{% endblock %}
+
+{% block content %}
+  <div class="wrapper">
+    <div class="page-header page-header-small" filter-color="orange">
+      <div class="page-header-image" data-parallax="true" style="background-image: url('static/img/bg5.jpg');">
+      </div>
+      <div class="container">
+        <div class="content-center brand">
+          <h1 class="title">{{ post.title }}</h1>
+          <h3>{{ post.subtitle }}</h3>
+          <span>Posted by <a href="#">{{ post.author.username }}</a> on {{ date_posted }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="button-container">
+          <a href="#button" class="btn btn-primary btn-round btn-lg">Follow</a>
+          <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Twitter">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip"
+             title="Follow me on Instagram">
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip"
+             title="Fork me on GitHub">
+            <i class="fa fa-github"></i>
+          </a>
+        </div>
+        <h3 class="title">About me</h3>
+        <h5 class="description">An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based
+          Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid
+          groove structure. An artist of considerable range.</h5>
+      </div>
+    </div>
+  </div>
+{% endblock %}

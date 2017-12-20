@@ -1,11 +1,12 @@
 from flask import Blueprint
 from flask import render_template, redirect, flash, request, url_for, abort
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import login_manager
 from app.models import db, User, Post
-from app.forms import LoginForm, SignupForm
+from app.forms import LoginForm, SignupForm, NewPostForm
 from urllib.parse import urlparse, urljoin
+from datetime import datetime
 
 mod = Blueprint("app", __name__, template_folder="templates", static_folder="static")
 
@@ -71,11 +72,21 @@ def post(post_id):
     return render_template("post.html", post=blogpost, date_posted=date)
 
 
-# this route is for testing 'next' in the session
-@mod.route("/home")
+@mod.route("/newpost", methods=["GET", "POST"])
 @login_required
-def home():
-    return "I should not see this unless logged in"
+def new_post():
+    form = NewPostForm()
+    if form.validate_on_submit():
+        blogpost = Post(title=form.title.data,
+                        subtitle=form.subtitle.data,
+                        author_id=current_user.id,
+                        content=form.content.data,
+                        date_posted=datetime.now())
+        db.session.add(blogpost)
+        db.session.commit()
+        return redirect(url_for('app.index'))
+
+    return render_template("newpost.html", form=form)
 
 
 @mod.route("/logout")
