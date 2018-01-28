@@ -21,6 +21,11 @@ def index():
     return render_template("index.html")
 
 
+@mod.route("/about")
+def about():
+    return render_template("about.html")
+
+
 def is_safe_url(target):
     ref_url = urlparse(request.host_url)
     test_url = urlparse(urljoin(request.host_url, target))
@@ -58,7 +63,9 @@ def signup():
 
     if form.validate_on_submit():
         hashed_password = generate_password_hash(form.password.data, method="sha256")
-        new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        new_user = User(username=form.username.data,
+                        email=form.email.data,
+                        password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('app.index'))
