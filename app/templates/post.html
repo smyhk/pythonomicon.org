@@ -1,24 +1,11 @@
-{% extends "layouts/baselayout.html" %}
+{% extends "layouts/base.html" %}
 {% block title %}
   The Pythonomicon - By SmyhkTech
 {% endblock %}
 
 {% block content %}
-  <div class="wrapper">
-    <div class="page-header page-header-small" filter-color="orange">
-      <div class="page-header-image" data-parallax="true"
-           style="background-image: url({{ url_for('static', filename='img/bg5.jpg') }});">
-      </div>
-      <div class="container">
-        <div class="content-center brand">
-          <h1 class="title">{{ post.title }}</h1>
-          <h2 class="description">{{ post.subtitle }}</h2>
-          <span class="meta">Posted by
-            <a href="#">{{ post.author.username }}</a> on {{ date_posted }}</span>
-        </div>
-      </div>
-    </div>
-    <div class="section">
+<!-- Post Content -->
+    <article>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
@@ -26,6 +13,5 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </article>
 {% endblock %}

@@ -1,50 +1,53 @@
-{% extends "layouts/baselayout.html" %}
+{% extends "layouts/base.html" %}
 {% block title %}
   New Post | The Pythonomicon
 {% endblock %}
 
 {% block content %}
-  <div class="wrapper">
-    <div class="page-header page-header-small" filter-color="orange">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('static/img/bg5.jpg');">
-      </div>
-      <div class="container">
-        <div class="content-center brand">
-          <h1 class="h1-seo">The Pythonomicon</h1>
-          <h3><em>noun</em> | pytho·nomi·con \'pithō, nämi, kän\</h3>
-          <p class="category">A developer's journal documenting my experiences with Python.</p>
+<!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <form name="addForm" id="addForm" method="post" action="{{ url_for('publish') }}" novalidate>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Title</label>
+                <input type="text" class="form-control" placeholder="Title" name="title" id="title"
+                       required data-validation-required-message="Please enter a title.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Subtitle</label>
+                <input type="text" class="form-control" placeholder="Subtitle" name="subtitle" id="subtitle"
+                       required data-validation-required-message="Please add a subtitle.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Author</label>
+                <input type="text" class="form-control" placeholder="Author" name="author" id="author"
+                       required data-validation-required-message="Please enter an author name.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Content</label>
+                <textarea rows="5" class="form-control" placeholder="Blog content" name="content" id="content"
+                          required data-validation-required-message="Please add your content here."></textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" id="sendMessageButton">Publish</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <div class="section">
-      <div class="container">
-        <form class="form" method="post" action="{{ url_for('app.new_post') }}">
-          {{ form.hidden_tag() }}
-          <div class="content">
-            <div class="input-group form-group-no-border input-lg">
-              <span class="input-group-addon">
-                <i class="now-ui-icons text_caps-small"></i>
-              </span>
-              {{ form.title(class="form-control", placeholder="Title...") }}
-            </div>
-            <div class="input-group form-group-no-border input-lg">
-              <span class="input-group-addon">
-                <i class="now-ui-icons text_caps-small"></i>
-              </span>
-              {{ form.subtitle(class="form-control", placeholder="Subtitle...") }}
-            </div>
-            <div class="input-group form-group-no-border input-lg">
-              <span class="input-group-addon">
-                <i class="now-ui-icons text_caps-small"></i>
-              </span>
-              {{ form.content(class="form-control", placeholder="Content...", rows="10") }}
-            </div>
-          </div>
-          <div class="footer text-center">
-            {{ form.submit(class="btn btn-primary btn-round btn-lg btn-block") }}
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-{% endblock %}
+{% endblock%}
