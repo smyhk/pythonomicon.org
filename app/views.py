@@ -18,7 +18,9 @@ def load_user(user_id):
 
 @mod.route("/")
 def index():
-    return render_template("index.html")
+    posts = Post.query.order_by(Post.date_posted.desc()).all()
+
+    return render_template("index.html", posts=posts)
 
 
 @mod.route("/about")
