@@ -1,6 +1,7 @@
 [![Python](https://img.shields.io/badge/Python-3.6-blue.svg?style=plastic)](https://www.python.org)
 [![Flask](https://img.shields.io/badge/Powered%20by-Flask-lightgrey.svg?style=plastic)](http://flask.pocoo.org)
-[discord-invite]: https://discord.gg/meJUe
+[![Discord](https://discordapp.com/api/guilds/408380211881574400/widget.png)](https://discord.gg/hnXBQcr)
+
 
 # Pythonomicon.org
 
